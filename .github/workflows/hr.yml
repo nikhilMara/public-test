@@ -1,0 +1,44 @@
+# .github/workflows/publish.yml
+name: HighRise Publish to npm
+
+on:
+  workflow_dispatch:
+    inputs:
+      dist-tag:
+        description: "npm dist-tag to publish under"
+        required: true
+        default: "latest"
+        type: choice
+        options:
+          - latest
+          - beta
+          - alpha
+
+permissions:
+  contents: read
+  id-token: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Block publishing from next
+        if: github.ref_name == 'next'
+        run: |
+          echo "::error::Publishing from 'next' is not allowed. Select a branch which should go public."
+          exit 1
+
+      - uses: actions/checkout@v6
+
+      - uses: actions/setup-node@v6
+        with:
+          node-version: "24"
+          registry-url: "https://registry.npmjs.org"
+          package-manager-cache: false
+
+      - run: npm ci
+      - run: npm run build --if-present
+      - run: npm test --if-present
+
+      - run: npm publish --access public --tag ${{ inputs.dist-tag }}
