@@ -1,10 +1,6 @@
 <script lang="ts" setup>
 import { defineComponent } from 'vue'
-import { Props } from './types'
-
-defineComponent({
-  name: 'HButton'
-})
+import { HLButton, HLAccordion } from '@gohighlevel/highrise'
 
 defineProps<Props>()
 </script>
