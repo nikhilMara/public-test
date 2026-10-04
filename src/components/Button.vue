@@ -1,8 +1,7 @@
 <script lang="ts" setup>
-import { defineComponent } from 'vue'
-import { HLButton, HLAccordion } from '@gohighlevel/highrise'
+import type { Props } from './types'
 
-defineProps<Props>()
+withDefaults(defineProps<Props>(), { type: 'primary' })
 </script>
 <template>
   <button class="btn" :class="`btn--${type}`">this is a button</button>

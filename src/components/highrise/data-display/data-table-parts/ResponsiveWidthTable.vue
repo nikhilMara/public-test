@@ -121,7 +121,7 @@ const tableWidth = ref(360)
   <HLInputNumber v-model:value="tableWidth" id="table-width" />
   <div
     class="flex flex-col gap-4 p-2"
-    :style="{ width: `${tableWidth}px`, border: '1px solid black' }"
+    :style="{ width: `${tableWidth}px` }"
   >
     <HLDataTableWrapper
       id="basic-table-wrapper"

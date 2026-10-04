@@ -29,7 +29,7 @@ const groups = computed(() => {
 </script>
 
 <template>
-  <HLContentWrap namespace="testPublic" fullScreen>
+  <HLContentWrap namespace="highrise_container" fullScreen locale="fr-FR">
     <div class="pg-layout">
       <aside class="pg-sidebar">
         <RouterLink to="/" class="pg-brand">Highrise Playground</RouterLink>

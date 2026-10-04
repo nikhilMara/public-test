@@ -4,12 +4,6 @@ import Home from '@/pages/Home.vue'
 
 const routes: RouteRecordRaw[] = [
   { path: '/', name: 'home', component: Home, meta: { title: 'Overview' } },
-  {
-    path: '/demo',
-    name: 'demo',
-    component: () => import('@/components/BoilerplateDemo.vue'),
-    meta: { title: 'Sign-up Demo', category: 'Examples' }
-  },
   ...pages.map((p) => ({
     path: `/${p.path}`,
     name: p.path,

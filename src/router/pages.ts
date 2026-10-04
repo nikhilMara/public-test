@@ -6,6 +6,7 @@ export interface PlaygroundPage {
 }
 
 export const pages: PlaygroundPage[] = [
+  { path: 'x/ce', title: 'CE', category: 'X', component: () => import('@/__ce.vue') },
   {
     path: 'root/colors',
     title: 'Colors',
